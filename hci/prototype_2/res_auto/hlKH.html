@@ -1,0 +1,47 @@
+##################
+#    Router K    #
+##################
+
+set-range 10.0.10.0/24
+set-name RK
+set-device-mode route
+
+# interface list
+define-interface T01 eth9
+define-interface RA eth2
+define-interface RB eth1
+define-interface RC eth1
+define-interface RD eth1
+define-interface RE eth1
+define-interface RF eth1
+define-interface RG eth2
+<span class="hl">define-interface RH eth2</span>
+define-interface RI eth2
+define-interface R_EXT_5 eth10
+define-interface R_EXT_6 eth11
+define-interface R_EXT_8 eth13
+
+# prefix routing
+prefix-route default T01
+prefix-route 10.0.1.0/24 RA
+prefix-route 10.0.2.0/24 RB
+prefix-route 10.0.3.0/24 RC
+prefix-route 10.0.4.0/24 RD
+prefix-route 10.0.5.0/24 RE
+prefix-route 10.0.6.0/24 RF
+prefix-route 10.0.7.0/24 RG
+<span class="hl">prefix-route 10.0.8.0/24 RH</span>
+prefix-route 10.0.9.0/24 RI
+route-mode bgp 
+prefix-route routemap_customer R_EXT_5
+prefix-route routemap_5 R_EXT_5
+prefix-route routemap_6 R_EXT_6
+prefix-route routemap_8 R_EXT_8
+
+# announcement
+announce bgp all 16
+announce ospf forward 00000
+
+local-pref weights 16
+local-pref redistribute off
+local-pref static 1
