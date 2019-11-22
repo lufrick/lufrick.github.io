@@ -1,0 +1,41 @@
+##################
+#    Router Z    #
+##################
+
+set-range 192.168.3.0/24
+set-name RZ
+set-device-mode route
+
+# interface list
+define-interface T01 eth9
+<span class="hl">define-interface RA eth8</span>
+define-interface RB eth8
+define-interface RC eth8
+define-interface RD eth8
+define-interface RX eth8
+define-interface RY eth7
+define-interface R_EXT_5 eth10
+define-interface R_EXT_6 eth11
+define-interface R_EXT_8 eth13
+
+# prefix routing
+prefix-route default T01
+<span class="hl">prefix-route 10.0.1.0/24 RA</span>
+prefix-route 10.0.2.0/24 RB
+prefix-route 10.0.3.0/24 RC
+prefix-route 10.0.4.0/24 RD
+prefix-route 192.168.1.0/24 RX
+prefix-route 192.168.2.0/24 RY
+route-mode bgp 
+prefix-route routemap_customer R_EXT_5
+prefix-route routemap_5 R_EXT_5
+prefix-route routemap_6 R_EXT_6
+prefix-route routemap_8 R_EXT_8
+
+# announcement
+announce bgp all 16
+announce ospf forward 00000
+
+local-pref weights 16
+local-pref redistribute off
+local-pref static 1
