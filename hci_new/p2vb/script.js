@@ -1,8 +1,18 @@
 var selfname = "";
+var selfname = "";
 
 window.onload = function() {
 	console.info("loaded");
-	selfname = document.getElementById("ide").dataset.name;
+	var prototypeName = document.getElementById("ide").dataset.name;
+	
+	var url = new URL(window.location.href);
+	var uid = url.searchParams.get("uid");
+	if (uid == null || uid == "") {
+		uid = "anon"+Date.now();
+	}
+	
+	selfname = uid + "@" + prototypeName;
+	document.getElementById("info").innerHTML = selfname;
 }
 
 function log(msg) {

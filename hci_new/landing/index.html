@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ETH HCI ICE IDE User Study</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+	
+	<script>
+		//https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+		function makeid(length) {
+			var result           = '';
+			var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			var charactersLength = characters.length;
+			for ( var i = 0; i < length; i++ ) {
+			result += characters.charAt(Math.floor(Math.random() * charactersLength));
+			}
+			return result;
+		}
+		
+		//https://stackoverflow.com/questions/10311341/confirmation-before-closing-of-tab-browser
+		window.onbeforeunload = function (e) {
+			e = e || window.event;
+			// For IE and Firefox prior to version 4
+			if (e) {
+				e.returnValue = 'Quit?';
+			}
+			// For Safari
+			return 'Quit?';
+		};
+		
+		var linklist = {
+			"tut_text": "https://lufrick.github.io/hci_new/quickstart/",
+			"tut_gui": "https://ethz-hci19-gp6.github.io/tutorial.html",
+			
+			"p1_va_text": "https://lufrick.github.io/hci_new/p1va/?uid=$uid",
+			"p1_vb_text": "https://lufrick.github.io/hci_new/p1vb/?uid=$uid",
+			"p1_va_gui": "https://ethz-hci19-gp6.github.io/P1VA.html?uid=$uid",
+			"p1_vb_gui": "https://ethz-hci19-gp6.github.io/P1VB.html?uid=$uid",
+			
+			"p2_va_text": "https://lufrick.github.io/hci_new/p2va/?uid=$uid",
+			"p2_vb_text": "https://lufrick.github.io/hci_new/p2vb/?uid=$uid",
+			"p2_va_gui": "https://ethz-hci19-gp6.github.io/P2VA.html?uid=$uid",
+			"p2_vb_gui": "https://ethz-hci19-gp6.github.io/P2VB.html?uid=$uid",
+			
+			"form": "https://docs.google.com/forms/d/e/1FAIpQLSfTA4PDcztF40Y6j9YORwMTMAzn5wyiOmAAPubbD3KB9AWLlA/viewform?entry.1889059370=$uid",
+		};
+		
+		var uid = "";
+		var selfname = "landing";
+		window.onload = function() {
+			uid = makeid(8);
+			document.getElementById("uid").innerHTML = uid;
+			
+			selfname = uid+"@landing";
+			
+			log("study start!");
+			
+			for (var lnkid in linklist) {
+				var elemId = "lnk_"+lnkid;
+				document.getElementById(elemId).href = linklist[lnkid].replace("$uid", uid);
+				document.getElementById(elemId).target = "_blank";
+				document.getElementById(elemId).onclick = (function(linkname) {
+					return function() {
+						log("opening link: "+linkname);
+						//alert(linkname);
+					}
+				})(lnkid);
+			}
+		}
+		
+		function log(msg) {
+			var url = "https://lanwg.mikrounix.com/testlogger/";
+			var params = "name="+encodeURI(selfname)+"&msg="+encodeURI(msg);
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", url, true);
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send(params);
+		}
+		
+	</script>
+	
+</head>
+<body>
+    <div class="text-center">
+		<br><br>
+		
+		
+		<img height="40px" src="logo-ait.png"/>
+		&emsp;
+		<img height="40px" src="ice-center-logo-eth.png"/>
+		
+		<br><br>
+		<hr>
+		<br>
+	
+        <h1>ETH HCI ICE IDE User Study</h1>
+		
+        <br>
+        <br>
+		
+		<h2>Tutorial</h2>
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="col-sm-auto">
+					<a href="#!" id="lnk_tut_text" class="btn btn-outline-primary"><h4>&ensp;Text&ensp;</h4></a>
+				</div>
+				<div class="col-sm-auto">
+					<a href="#!" id="lnk_tut_gui" class="btn btn-outline-primary"><h4>&ensp;GUI&ensp;</h4></a>
+				</div>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<h2>Task 1</h2>
+		<i style="color: #aaa;">Your instructor will tell you which tasks to open.</i>
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="col-sm-auto">
+					<h3>Text</h3>
+					<div class="row justify-content-md-center">
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p1_va_text" class="btn btn-outline-primary"><h4>&ensp;A&ensp;</h4></a>
+						</div>
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p1_vb_text" class="btn btn-outline-primary"><h4>&ensp;B&ensp;</h4></a>
+						</div>
+					</div>
+				</div>
+				&emsp;&emsp;&emsp;&emsp;&emsp;
+				<div class="col-sm-auto">
+					<h3>GUI</h3>
+					<div class="row justify-content-md-center">
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p1_va_gui" class="btn btn-outline-primary"><h4>&ensp;A&ensp;</h4></a>
+						</div>
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p1_vb_gui" class="btn btn-outline-primary"><h4>&ensp;B&ensp;</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br><br>
+		
+        <h2>Task 2</h2>
+		<i style="color: #aaa;">Your instructor will tell you which tasks to open.</i><br>
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="col-sm-auto">
+					<h3>Text</h3>
+					<div class="row justify-content-md-center">
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p2_va_text" class="btn btn-outline-primary"><h4>&ensp;A&ensp;</h4></a>
+						</div>
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p2_vb_text" class="btn btn-outline-primary"><h4>&ensp;B&ensp;</h4></a>
+						</div>
+					</div>
+				</div>
+				&emsp;&emsp;&emsp;&emsp;&emsp;
+				<div class="col-sm-auto">
+					<h3>GUI</h3>
+					<div class="row justify-content-md-center">
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p2_va_gui" class="btn btn-outline-primary"><h4>&ensp;A&ensp;</h4></a>
+						</div>
+						<div class="col-sm-auto">
+							<a href="#!" id="lnk_p2_vb_gui" class="btn btn-outline-primary"><h4>&ensp;B&ensp;</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<br><br>
+		
+		<h2>Questionnaire</h2>
+		<a href="#!" id="lnk_form" class="btn btn-outline-primary"><h4>&ensp;Questionnaire link&ensp;</h4></a>
+		
+		<br>
+		<br>
+		<hr>
+		<br>
+		
+		<span style="color: #aaa;">
+			Your ID is<br>
+			<b id="uid"></b>
+		</span>
+		
+		<br>
+		<br>
+		<br>
+		
+    </div>
+              
+</body>
+</html>
