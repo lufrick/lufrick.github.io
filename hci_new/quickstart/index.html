@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Network IDE</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<div id="ide">
+			<div id="sidebar">
+				<h1>Network</h1>
+				<a onclick="openFile('A'); nextInstruction(2)">Router A</a>
+				<a onclick="openFile('B'); nextInstruction(2)">Router B</a>
+				<a onclick="openFile('C'); nextInstruction(2)">Router C</a>
+				<a onclick="openFile('D'); nextInstruction(2)">Router D</a>
+				<a onclick="openFile('X'); nextInstruction(2)">Router X</a>
+				<a onclick="openFile('Y'); nextInstruction(2)">Router Y</a>
+				<a onclick="openFile('Z'); nextInstruction(2)">Router Z</a>
+				<a onclick="openFile('MAP'); nextInstruction(1)">Weathermap</a>
+			</div>
+			<div id="tabs">
+				<div id="menubar">
+					<a class="btn" onclick="openRightMenu();">analyze</a>
+					<span style="float:right;padding:5px;">tut</span>
+				</div>
+				<div id="opentabs">
+					
+				</div>
+				<div id="content">
+					
+				</div>
+			</div>
+		</div>
+		<div id="block">
+		</div>
+		<div id="msg" class="msg" style="top:320px; left:180px;">
+		<div id="msgarr" class="arr left"></div>
+		<p id="msgtxt">
+			Click here to open an overview of the network topology.
+		</p>
+		</div>
+	</body>
+</html>

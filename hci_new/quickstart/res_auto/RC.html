@@ -1,0 +1,35 @@
+##################
+#    Router C    #
+##################
+
+set-range 10.0.3.0/24
+set-name RC
+set-device-mode route
+
+# interface list
+define-interface T01 eth9
+define-interface RA eth1
+define-interface RB eth1
+define-interface RD eth1
+define-interface R_EXT_5 eth10
+define-interface R_EXT_6 eth11
+define-interface R_EXT_8 eth13
+
+# prefix routing
+prefix-route default T01
+prefix-route 10.0.1.0/24 RA
+prefix-route 10.0.2.0/24 RB
+prefix-route 10.0.4.0/24 RD
+route-mode bgp 
+prefix-route routemap_customer R_EXT_5
+prefix-route routemap_5 R_EXT_5
+prefix-route routemap_6 R_EXT_6
+prefix-route routemap_8 R_EXT_8
+
+# announcement
+announce bgp all 16
+announce ospf forward 00000
+
+local-pref weights 16
+local-pref redistribute off
+local-pref static 1
