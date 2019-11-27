@@ -1,25 +1,25 @@
 ##################
-#    Router B    #
+#    Router A    #
 ##################
 
-set-range 192.168.2.0/24
-set-name RB
+set-range 10.11.0.0/16
+set-name RA
 set-device-mode route
 
 # interface list
 define-interface T01 eth9
-define-interface RA eth0
-define-interface RC eth1
-define-interface RD eth0
+define-interface RB eth4
+define-interface RC <span class="redU">eth6</span>
+define-interface RD eth6
 define-interface R_EXT_5 eth10
 define-interface R_EXT_6 eth11
 define-interface R_EXT_8 eth13
 
 # prefix routing
 prefix-route default T01
-prefix-route 192.168.1.0/24 RA
-prefix-route 192.168.3.0/24 RC
-prefix-route 192.168.4.0/24 RD
+prefix-route 10.12.0.0/16 RB
+prefix-route 10.13.0.0/16 RC
+prefix-route 10.14.0.0/16 RD
 route-mode bgp 
 prefix-route routemap_customer R_EXT_5
 prefix-route routemap_5 R_EXT_5

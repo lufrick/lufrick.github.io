@@ -94,14 +94,14 @@ function switchTab(a) {
 	if (a !== null) load(url, function(t) {
 		setContent(t);
 		
-		if (a == "MAP") {
+		/*if (a == "MAP") {
 			sigma.parsers.json('netw.json', {
 			container: 'container',
 			settings: {
 			  defaultNodeColor: '#ffffff'
 			}
 			});
-		}
+		}*/
 	}, function(t) {
 		setContent("not found");
 	});
@@ -116,9 +116,20 @@ function setContent(t) {
 
 function openRightMenu() {
 	log("open analyze menu on "+currentRouter);
-	if (currentRouter != null) load("res_static/boxRight.html", function(t) {
-		document.getElementById("content").innerHTML += t;
-	});
+	
+	if (currentRouter != null) {
+		var url = "res_auto/anR"+currentRouter+".html";
+		load(url, function(t) {
+			setContent(t);
+			
+			load("res_static/boxRight.html", function(t) {
+				document.getElementById("content").innerHTML += t;
+			});
+		}, function(t) {
+			setContent("not found");
+		});
+	}
+	
 }
 
 
