@@ -1,0 +1,252 @@
+* {
+	/*margin: 0;
+	padding: 0;*/
+	
+}
+
+body.loadingcursor, .loadingcursor *, .loadingcursor a, .loadingcursor .btn, a.loadingcursor, .btn.loadingcursor {
+	cursor: wait !important; 
+}
+
+#header, #footer {
+	background: #222;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	height: 20px;
+	left: 0;
+	
+}
+#header{
+	top: 0;
+}
+#footer{
+	bottom: 0;
+	border-top: 1px solid #555;
+}
+#main {
+	width: 100%;
+	top: 60px;
+	bottom: 20px;
+	position: fixed;
+}
+
+.tabcontainer {
+	top: 0;
+	position: absolute;
+	height: 100%;
+	width: 30px;
+	background: #ff0;
+}
+.tabcontainer.slim {
+	width: 250px;
+}
+#t1 {left:0;}
+#t2 {
+	left:250px;
+	width: calc(100% - 500px);
+}
+#t3 {right:250px; display: none;}
+#t4 {right:0;}
+
+.twotabs #t2 {
+	width: calc(50% - 250px);
+}
+.twotabs #t3 {
+	display: block;
+	width: calc(50% - 250px);
+}
+
+.tabcontent {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	background: #232323;
+	height: calc(100% - 40px);
+}
+
+a,li {
+	cursor: pointer;
+}
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	color: #ddd;
+	
+	margin: 0;
+	background: #444;
+	width: 100%;
+	height: 100%;
+}
+
+#ide {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+#sidebar {
+	padding: 10px;
+	background: #333;
+	width: 250px;
+	height: 100%;
+}
+#sidebar a {
+	display: block;
+	padding: 5px;
+}
+#sidebar a:hover {
+	color: #333;
+	background: #ddd;
+}
+#sidebar a:active {
+	color: #ddd;
+	background: #47d;
+}
+
+#tabs {
+	position: absolute;
+	width: calc(100% - 250px);
+	background: #777;
+	right: 0;
+	top: 0;
+	height: 100%;
+}
+
+#menubar {
+	left: 0;
+	top: 20px;
+	height: 40px;
+	width: 100%;
+	background: #666;
+	overflow: hidden;
+	position: fixed;
+}
+
+#menubar > a {
+	display: inline-block;
+	height: 30px;
+	margin: 4px 10px 0 10px;
+}
+
+.btn {
+	background: #8cf;
+	border: 1px #fff solid;
+	padding: 0 10px;
+	line-height:30px;
+	color: #222;
+}
+.btn.gray {
+	background: #888;
+}
+.btn img {
+	height: 18px;
+	vertical-align: middle;
+}
+
+.opentabs {
+	left: 0;
+	top: 0;
+	height: 40px;
+	width: 100%;
+	background: #444;
+	overflow: hidden;
+}
+
+.opentabs > a {
+	display: inline-block;
+	height: 30px;
+	margin: 9px 10px 0 10px;
+	background: #888;
+	border: 1px #fff solid;
+	border-bottom: none;
+	padding: 0 10px 0 20px;
+	line-height:30px;
+	color: #222;
+}
+.opentabs > a.active {
+	background: #fff;
+	color: #222;
+}
+
+.opentabs .x {
+	display: inline-block;
+	font-size: 25px;
+	vertical-align: top;
+	padding-left: 10px;
+	color: #a00;
+	margin-top: -2px;
+}
+
+pre {
+	font-family: 'Lucida Console';
+	padding: 10px;
+	color: #fff;
+	margin: 0;
+}
+
+.scrollBox {
+	overflow-y: scroll;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+#content {
+	top: 80px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.boxRight {
+	height: 100%;
+	background: #555;
+	padding: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+.hl {
+	background: rgba(255,255,0,0.5);
+	
+}
+
+.redU {
+	text-decoration: underline;
+	text-decoration-color: red;
+	text-decoration-style:wavy;
+}
+
+
+
+/* syntax highlight */
+.xcom { color: #0a0; } /*comment*/
+.xcmd { color: #45f; } /*command*/
+.xarga { color: #0ff; } /*address*/
+.xargc { color: #8df; } /*const*/
+.xargs { color: #f67; } /*string (router names)*/
+.xargi { color: #fff; } /*int*/
+.xargn { color: #d0d; } /*name (interfaces)*/
+.xargx { color: #a00; font-weight: bold; } /*xternal reference*/
+.xargb { color: #ff5; } /*bool*/
+
+
+#progressbar {
+	margin-left: 100px;
+	display: inline-block;
+	height: 20px;
+	width: 500px;
+	background: #666;
+}
+#progressbar > div.pgbarinner {
+	height: 20px;
+	width: 0%;
+	background: #0c0;
+	transition: width 1s linear;
+	
+}
+#progressbar.loading > div.pgbarinner {
+	
+	width: 100%;
+}

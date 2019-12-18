@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Network IDE v2</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="ide.css">
+		<script src="ide.js"></script>
+	</head>
+	<body>
+		<div id="ide" data-name="v2">
+			<div id="header">
+				Network IDE
+			</div>
+			<div id="menubar">
+				<a class="btn" onclick="openAnalMenu()"><img src="res_static/img/lamp.png"> analyze</a>
+				<a class="btn" onclick="moveToTab2()">&#129094; <img src="res_static/img/tab.png"></a>
+				<a class="btn" onclick="openFile('res_static/overview', 'Network Map')"><img src="res_static/img/map.png"> map</a>
+				<a class="btn" onclick="openFile('res_static/monitor', 'Monitoring')"><img src="res_static/img/monitor.png"> monitoring</a>
+				<a class="btn" onclick="openFile('res_static/advsearch', 'Advanced Search')"><img src="res_static/img/search.png"> search</a>
+				<a class="btn" onclick="openFile('res_static/commit', 'Commit')"><img src="res_static/img/commit.png"> commit</a>
+				<a class="btn" onclick="closeall()"><img src="res_static/img/closeall.png"></a>
+			</div>
+			<div id="main">
+				<div class="tabcontainer slim" id="t1">
+					<div id="opentabs1" class="opentabs">
+					</div>
+					<div id="content1" class="tabcontent">
+					</div>
+				</div>
+				<div class="tabcontainer" id="t2" onclick="focusOnTab(2)">
+					<div id="opentabs2" class="opentabs">
+					</div>
+					<div id="content2" class="tabcontent">
+					</div>
+				</div>
+				<div class="tabcontainer" id="t3" onclick="focusOnTab(3)">
+					<div id="opentabs3" class="opentabs">
+					</div>
+					<div id="content3" class="tabcontent">
+					</div>
+				</div>
+				<div class="tabcontainer slim" id="t4">
+					<div id="opentabs4" class="opentabs">
+					</div>
+					<div id="content4" class="tabcontent">
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				Ready.
+			</div>
+		</div>
+	</body>
+</html>

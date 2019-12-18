@@ -1,0 +1,47 @@
+<span class="xcom">####################
+#    Router PRG    #
+####################</span>
+
+<span class="xcmd">set-range</span> <span class="xarga">25.7.5.0/24</span>
+<span class="xcmd">set-name</span> <span class="xargs">RPRG</span>
+<span class="xcmd">set-device-mode</span> <span class="xargc">route</span>
+
+<span class="xcom"># interface list</span>
+<span class="xcmd">define-interface</span> <span class="xargs">T01</span> <span class="xargn">eth9</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RHMB</span> <span class="xargn">eth1</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RBER</span> <span class="xargn">eth1</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RLON</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RPRS</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RVNA</span> <span class="xargn">eth3</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RZRH</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RMIL</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RCAT</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">RMDR</span> <span class="xargn">eth2</span>
+<span class="xcmd">define-interface</span> <span class="xargs">R_EXT_5</span> <span class="xargn">eth10</span>
+<span class="xcmd">define-interface</span> <span class="xargs">R_EXT_6</span> <span class="xargn">eth11</span>
+<span class="xcmd">define-interface</span> <span class="xargs">R_EXT_8</span> <span class="xargn">eth13</span>
+
+<span class="xcom"># prefix routing</span>
+<span class="xcmd">prefix-route</span> <span class="xargc">default</span> <span class="xargs">T01</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.1.0/24</span> <span class="xargs">RHMB</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.2.0/24</span> <span class="xargs">RBER</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.3.0/24</span> <span class="xargs">RLON</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.4.0/24</span> <span class="xargs">RPRS</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.6.0/24</span> <span class="xargs">RVNA</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.7.0/24</span> <span class="xargs">RZRH</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.8.0/24</span> <span class="xargs">RMIL</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.9.0/24</span> <span class="xargs">RCAT</span>
+<span class="xcmd">prefix-route</span> <span class="xarga">25.7.10.0/24</span> <span class="xargs">RMDR</span>
+<span class="xcmd">route-mode</span> <span class="xargc">bgp </span>
+<span class="xcmd">prefix-route</span> <span class="xargx">routemap_customer</span> <span class="xargs">R_EXT_5</span>
+<span class="xcmd">prefix-route</span> <span class="xargx">routemap_5</span> <span class="xargs">R_EXT_5</span>
+<span class="xcmd">prefix-route</span> <span class="xargx">routemap_6</span> <span class="xargs">R_EXT_6</span>
+<span class="xcmd">prefix-route</span> <span class="xargx">routemap_8</span> <span class="xargs">R_EXT_8</span>
+
+<span class="xcom"># announcement</span>
+<span class="xcmd">announce</span> <span class="xargc">bgp<span class="xargi"> <span class="xargb">all</span> <span class="xargi">16</span>
+<span class="xcmd">announce</span> <span class="xargc">ospf forward</span> <span class="xargi">00000</span>
+
+<span class="xcmd">local-pref</span> <span class="xargc">weights </span><span class="xargi">16</span>
+<span class="xcmd">local-pref</span> <span class="xargc">redistribute</span> <span class="xargb">off</span>
+<span class="xcmd">local-pref</span> <span class="xargc">static <span class="xargi">1</span>

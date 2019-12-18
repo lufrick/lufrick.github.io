@@ -1,0 +1,293 @@
+{
+	"nodes": [{
+		"name": "HMB",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "3",
+			"neighbour": 1,
+			"neighbour_name": "BER",
+			"dst": ["RBER", "RPRG"]
+		}, {
+			"intf_name": "1",
+			"neighbour": 2,
+			"neighbour_name": "LON",
+			"dst": ["RLON"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 3,
+			"neighbour_name": "PRS",
+			"dst": ["RPRS", "RVNA", "RZRH", "RMIL", "RCAT", "RMDR"]
+		}],
+		"prefix": "25.7.1.0\/24",
+		"pos": {
+			"x": 0.68,
+			"y": 0.0058823529411764705
+		},
+		"posd": {
+			"x": 1360,
+			"y": 10
+		}
+	}, {
+		"name": "BER",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 0,
+			"neighbour_name": "HMB",
+			"dst": ["RHMB", "RLON", "RPRS", "RCAT", "RMDR"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 4,
+			"neighbour_name": "PRG",
+			"dst": ["RPRG", "RVNA", "RZRH", "RMIL"]
+		}],
+		"prefix": "25.7.2.0\/24",
+		"pos": {
+			"x": 0.825,
+			"y": 0.09411764705882353
+		},
+		"posd": {
+			"x": 1650,
+			"y": 160
+		}
+	}, {
+		"name": "LON",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 0,
+			"neighbour_name": "HMB",
+			"dst": ["RHMB", "RBER"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 3,
+			"neighbour_name": "PRS",
+			"dst": ["RPRS", "RPRG", "RVNA", "RZRH", "RMIL", "RCAT", "RMDR"]
+		}],
+		"prefix": "25.7.3.0\/24",
+		"pos": {
+			"x": 0.245,
+			"y": 0.17058823529411765
+		},
+		"posd": {
+			"x": 490,
+			"y": 290
+		}
+	}, {
+		"name": "PRS",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "2",
+			"neighbour": 0,
+			"neighbour_name": "HMB",
+			"dst": ["RHMB", "RBER"]
+		}, {
+			"intf_name": "1",
+			"neighbour": 2,
+			"neighbour_name": "LON",
+			"dst": ["RLON"]
+		}, {
+			"intf_name": "3",
+			"neighbour": 6,
+			"neighbour_name": "ZRH",
+			"dst": ["RPRG", "RVNA", "RZRH", "RMIL", "RCAT"]
+		}, {
+			"intf_name": "4",
+			"neighbour": 8,
+			"neighbour_name": "CAT",
+			"dst": []
+		}, {
+			"intf_name": "5",
+			"neighbour": 9,
+			"neighbour_name": "MDR",
+			"dst": ["RMDR"]
+		}],
+		"prefix": "25.7.4.0\/24",
+		"pos": {
+			"x": 0.355,
+			"y": 0.38823529411764707
+		},
+		"posd": {
+			"x": 710,
+			"y": 660
+		}
+	}, {
+		"name": "PRG",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 1,
+			"neighbour_name": "BER",
+			"dst": ["RHMB", "RBER", "RLON"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 6,
+			"neighbour_name": "ZRH",
+			"dst": ["RPRS", "RZRH", "RMIL", "RCAT", "RMDR"]
+		}, {
+			"intf_name": "3",
+			"neighbour": 5,
+			"neighbour_name": "VNA",
+			"dst": ["RVNA"]
+		}],
+		"prefix": "25.7.5.0\/24",
+		"pos": {
+			"x": 0.865,
+			"y": 0.2823529411764706
+		},
+		"posd": {
+			"x": 1730,
+			"y": 480
+		}
+	}, {
+		"name": "VNA",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 4,
+			"neighbour_name": "PRG",
+			"dst": ["RHMB", "RBER", "RPRG"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 6,
+			"neighbour_name": "ZRH",
+			"dst": ["RLON", "RPRS", "RZRH", "RMIL", "RCAT", "RMDR"]
+		}],
+		"prefix": "25.7.6.0\/24",
+		"pos": {
+			"x": 0.95,
+			"y": 0.4176470588235294
+		},
+		"posd": {
+			"x": 1900,
+			"y": 710
+		}
+	}, {
+		"name": "ZRH",
+		"healthy": false,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 3,
+			"neighbour_name": "PRS",
+			"dst": ["RHMB", "RLON", "RPRS", "RMDR", "RCAT"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 4,
+			"neighbour_name": "PRG",
+			"dst": ["RBER", "RPRG"]
+		}, {
+			"intf_name": "3",
+			"neighbour": 5,
+			"neighbour_name": "VNA",
+			"dst": ["RVNA"]
+		}, {
+			"intf_name": "4",
+			"neighbour": 7,
+			"neighbour_name": "MIL",
+			"dst": ["RMIL"]
+		}],
+		"prefix": "25.7.7.0\/24",
+		"pos": {
+			"x": 0.605,
+			"y": 0.5058823529411764
+		},
+		"posd": {
+			"x": 1210,
+			"y": 860
+		}
+	}, {
+		"name": "MIL",
+		"healthy": true,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 6,
+			"neighbour_name": "ZRH",
+			"dst": ["RHMB", "RBER", "RLON", "RPRS", "RPRG", "RVNA", "RZRH"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 8,
+			"neighbour_name": "CAT",
+			"dst": ["RCAT", "RMDR"]
+		}],
+		"prefix": "25.7.8.0\/24",
+		"pos": {
+			"x": 0.645,
+			"y": 0.7294117647058823
+		},
+		"posd": {
+			"x": 1290,
+			"y": 1070
+		}
+	}, {
+		"name": "CAT",
+		"healthy": true,
+		"interfaces": [{
+			"intf_name": "2",
+			"neighbour": 3,
+			"neighbour_name": "PRS",
+			"dst": ["RHMB", "RBER", "RLON", "RPRS", "RVNA", "RZRH"]
+		}, {
+			"intf_name": "1",
+			"neighbour": 7,
+			"neighbour_name": "MIL",
+			"dst": ["RPRG", "RMIL"]
+		}, {
+			"intf_name": "3",
+			"neighbour": 9,
+			"neighbour_name": "MDR",
+			"dst": ["RMDR"]
+		}],
+		"prefix": "25.7.9.0\/24",
+		"pos": {
+			"x": 0.35,
+			"y": 0.9058823529411765
+		},
+		"posd": {
+			"x": 700,
+			"y": 1540
+		}
+	}, {
+		"name": "MDR",
+		"healthy": true,
+		"interfaces": [{
+			"intf_name": "1",
+			"neighbour": 3,
+			"neighbour_name": "PRS",
+			"dst": ["RHMB", "RBER", "RLON", "RPRS", "RPRG", "RVNA", "RZRH"]
+		}, {
+			"intf_name": "2",
+			"neighbour": 8,
+			"neighbour_name": "CAT",
+			"dst": ["RMIL", "RCAT"]
+		}],
+		"prefix": "25.7.10.0\/24",
+		"pos": {
+			"x": 0.1,
+			"y": 0.9823529411764705
+		},
+		"posd": {
+			"x": 200,
+			"y": 1670
+		}
+	}],
+	"links": {
+		"expected": [
+			[0, 2],
+			[0, 3],
+			[0, 1],
+			[1, 4],
+			[2, 3],
+			[3, 6],
+			[3, 8],
+			[3, 9],
+			[4, 6],
+			[4, 5],
+			[5, 6],
+			[6, 7],
+			[7, 8],
+			[8, 9]
+		],
+		"normal": [],
+		"abnormal": []
+	}
+}

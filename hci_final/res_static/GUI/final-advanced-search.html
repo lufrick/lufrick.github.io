@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ETHZ HCI19 GP6 GUI</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/paper-full.js"></script>
+    <script type="text/paperscript" src="js/hci-no-geo.js" canvas="canvas"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Button to Open the Modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
+            Advanced Search &nbsp; <i class="fas fa-search"></i>
+        </button>
+        
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+            
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                    <h4 class="modal-title">Advanced Traffic Search &nbsp;</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+            
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                    <!-- Modal body..  -->
+
+                        <div class="container">
+                    	    <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                    	        <form class="col-md-5">
+                    	            <label>
+                                        <!-- <span class="badge badge-success"> -->
+                                            <!-- <i class="fas fa-map-marker-alt"></i> -->
+                                        <!-- </span> -->
+                                        &nbsp;Target Node&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </label>
+                    	            <select class="form-control select2" id="target_node">
+                                    <option>&nbsp;&nbsp;&nbsp;&nbsp;</option> 
+                                    <option>BER</option>
+<option>CAT</option>
+<option>HMB</option>
+<option>LON</option>
+<option>MDR</option>
+<option>MIL</option>
+<option>PRG</option>
+<option>PRS</option>
+<option>VNA</option>
+<option>ZRH</option>
+                    	            <!-- <option>E</option> 
+                    	            <option>F</option> 
+                    	            <option></option>  -->
+                    	            </select>
+                    	        </form>
+                            </div>
+                            <hr>
+                    	    <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                    	        <form class="col-md-8">
+                    	            <label>
+                                        <!-- <span class="badge badge-success"> -->
+                                            <!-- <i class="fas fa-search"></i> -->
+                                        <!-- </span> -->
+                                        &nbsp;Query Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </label>
+                    	            <select class="form-control select2">
+                    	            <option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> 
+                    	            <option>Reachability</option> 
+                    	            <option>Waypoints</option> 
+                    	            <option>Isolation</option> 
+                    	            <option>Load balancing</option> 
+                    	            <!-- <option>E</option> 
+                    	            <option>F</option> 
+                    	            <option></option>  -->
+                    	            </select>
+                    	        </form>
+                            </div>
+                            <hr>
+                    	    <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <form class="col-md-5">
+                    	            <label>
+                                        &nbsp;Routing Prefix&nbsp;
+                                    </label>
+                    	            <select class="form-control select2">
+                    	            <option>25.7.9.0/24</option> 
+                    	            </select>
+                                </form>
+                                <form class="col-md-5">
+                    	            <label>
+                                        &nbsp;Related Node(s)&nbsp;
+                                    </label>
+                    	            <select class="form-control select2">
+                    	            <option>(All)</option> 
+                    	            <!-- <option>E</option> 
+                    	            <option>F</option> 
+                    	            <option></option>  -->
+                    	            </select>
+                                </form>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                                <form class="col-md-8">
+                    	            <label>
+                                        &nbsp;Search Period&nbsp;
+                                    </label>
+                                    <select class="form-control select2">
+                                        <option>11/12/2019 - Present</option> 
+                                    </select>
+                                </form>
+                            </div>
+                            <hr>
+                    	    <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                    	        <form class="col-md-5">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" checked> Show interface on link
+                                        </label>
+                                      </div>
+                    	        </form>
+                    	        <form class="col-md-5">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox"> Show detailed texts
+                                        </label>
+                                      </div>
+                    	        </form>
+                            </div>
+                    	    <div class="row">
+                                <div class="col-md-2"></div>
+                    	        <form class="col-md-5">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" checked> Hide node prefix
+                                        </label>
+                                      </div>
+                    	        </form>
+                    	        <form class="col-md-5">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                          <input class="form-check-input" type="checkbox" checked> Persist results
+                                        </label>
+                                      </div>
+                    	        </form>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <form class="col-md-5">
+                                    <label>
+                                        &nbsp;Interface Color&nbsp;
+                                    </label>
+                                    <span class="badge badge-success">#00ff00</span>
+                                    <a style="color: darkgrey;" href=""><i class="fas fa-eye-dropper"></i></a>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            $('.select2').select2();
+                        </script>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="showTraffic()">Search</button>
+                    <script>
+                        // $( document ).ready(function() {
+                            function showTraffic() {
+                                window.waypointToggle($("#target_node").val());
+                            }
+                        // });
+                    </script>
+
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+      </div>
+    <p hidden id="config" config_file="configs/FINAL.json"></p>
+    <canvas id="canvas" resize stats hidpi="off"></canvas>
+</body>
+</html>
